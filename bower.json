@@ -1,0 +1,39 @@
+{
+  "name": "nodeexpress",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "chekuda <joselchecaexpo@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.6.3"
+  },
+    "overrides":{
+        "bootstrap":{
+            "main":[
+                "dist/css/bootstrap.min.css",
+                "dist/js/bootstrap.js",
+                "less/bootstrap.less"
+            ]
+        },
+        "font-awesome":
+        {
+            "main":[
+                 "less/font-awesome.less",
+                 "scss/font-awesome.scss",
+                 "css/font-awesome.min.css"
+                
+            ]
+        }
+    }
+}
