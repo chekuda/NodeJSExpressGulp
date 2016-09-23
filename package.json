@@ -1,13 +1,13 @@
 {
   "name": "nodeexpress",
   "version": "1.0.0",
-  "description": "",
+  "description": "Firts project with Gulp",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Jose Luis Checa",
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0"
@@ -17,9 +17,11 @@
     "gulp-inject": "^4.1.0",
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.1",
+    "gulp-nodemon": "^2.1.0",
     "jscs": "^3.0.7",
     "jshint": "^2.9.3",
     "jshint-stylish": "^2.2.1",
+    "nodemon": "^1.10.2",
     "wiredep": "^4.0.0"
   }
 }

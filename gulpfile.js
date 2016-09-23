@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
+var nodemon = require('nodemon');
 
 var jsFiles = ['*.js', 'src/**/*.js'];
 
@@ -25,15 +26,17 @@ gulp.task('inject', function () {
     //<!--endbower-->
     //<!--inject:css-->
     //<!--endbower-->
-    var wiredep = require('wiredep').stream;//Used for libraries
-    var inject = require('gulp-inject');//Use for my css and js files
-    
-    var injectSrc = gulp.src(['./public/css/*.css','./public/js/*.js'],{read:false});
-    
+    var wiredep = require('wiredep').stream; //Used for libraries
+    var inject = require('gulp-inject'); //Use for my css and js files
+
+    var injectSrc = gulp.src(['./public/css/*.css', './public/js/*.js'], {
+        read: false
+    });
+
     var injectOptions = {
-        ignorePath:'/public'
+        ignorePath: '/public'
     };
-    
+
     var options = {
         //for example take the json file and get the packages from the lib where Im saving the files
         bowerJson: require('./bower.json'),
@@ -45,4 +48,21 @@ gulp.task('inject', function () {
         .pipe(wiredep(options)) //wiredep take the options
         .pipe(inject(injectSrc, injectOptions))
         .pipe(gulp.dest('./src/views')); //paste the options into the views
+});
+
+//Thi task will run the server with first executing 'style' and 'inject' task
+gulp.task('serve', ['style', 'inject'], function () {
+    //This option will be sent to nodemon in order to restart the server every jsFiles change
+    var options = {
+        script: 'app.js',
+        delayTime: 1,
+        env: {
+            'PORT': 3000
+        },
+        watch: jsFiles
+    };
+    return nodemon(options)
+        .on('restart', function (ev) {
+            console.log('Restarting...');
+        });
 });

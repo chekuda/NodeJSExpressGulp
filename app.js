@@ -2,7 +2,8 @@ var express = require('express');
 
 var app = express();
 
-var port = 5000;
+//This will take the port in env otherwise the port 5000
+var port = process.env.PORT || 5000;
 
 //Set up the public directory as static directory
 //For this: 'use' will use first the directory added--middleware
