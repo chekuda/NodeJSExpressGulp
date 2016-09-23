@@ -44,7 +44,7 @@ gulp.task('inject', function () {
         ignorePath: '../../public'
     };
     //This will inject the files thats typed on the options vars
-    return gulp.src('./src/views/*.html') //this is going to pull in the html file
+    return gulp.src('./src/views/*.jade') //this is going to pull in the jade/html file
         .pipe(wiredep(options)) //wiredep take the options
         .pipe(inject(injectSrc, injectOptions))
         .pipe(gulp.dest('./src/views')); //paste the options into the views
