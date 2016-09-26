@@ -12,7 +12,7 @@ app.use(express.static('public'));
 //This is for seta variable views which is into ./src/views
 app.set('views','./src/views');
 
-app.engine('.hbs',handlebars({extname: '.hbs'}));
+app.engine('.hbs',handlebars({extname: '.hbs'}));//this only for handlebars
 
 //The engine for views
 //Change to jade for different engine
